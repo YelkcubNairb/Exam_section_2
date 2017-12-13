@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head> 
+    <% include ../partials/head.ejs %> 
+</head>
+
+<body class="container">
+    <header> 
+        <% include ../partials/header.ejs %> 
+    </header>
+    
+
+    <main>
+        <div class="jumbotron">
+        <h1>
+            Number that will be cubed: <%= inpNumber %>
+        </h1>
+        <h2>
+            The result of the Cube: <%= resultNumber %>
+        </h2>
+        
+            <p>
+                The input: <%= inpNumber %>
+            </p>
+            <p>The output: <%= resultNumber %></p>
+        </div>
+    </main>
+
+<footer> <% include ../partials/footer %> </footer>
+<h3 >Brian Buckley</h3>
+</body>
+</html>
+

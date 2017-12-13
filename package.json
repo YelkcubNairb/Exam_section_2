@@ -1,0 +1,56 @@
+{
+    "name": "Exam_2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "cleanCoverageDirs": "rm -rf .nyc_output coverage",
+
+        "test": "npm run testAndCoverage",
+
+        "testOnly": "npm run test_mocha_all",
+
+        "test_mocha_testDirOnly": "mocha",
+        "test_mocha_all": "mocha --recursive",
+        "test_mocha_all_TDD_asWellAs_BDD": "mocha --recursive --ui tdd",
+
+        "testAndCoverage": "npm run testAndCoverage_via_istanbul && npm run testAndCoverage_via_nyc",
+
+        "testAndCoverage_via_nyc": "nyc mocha --recursive",
+        "testAndCoverage_via_nyc_TDD_asWellAs_BDD": "nyc mocha --recursive --ui tdd",
+
+        "testAndCoverage_via_istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive",
+        "testCoverage_via_istanbul_2": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive",
+        "testAndCoverage_via_istanbul_DONTwork": "istanbul cover _mocha",
+
+        "checkCoverage": "npm run checkCoverage_perFile_nyc",
+        "checkCoverage_overAll_nyc_defaults": "nyc check-coverage || true",
+        "checkCoverage_overAll_nyc": "nyc check-coverage --lines 90 --functions 95 --branches 85 || true",
+        "checkCoverage_perFile_nyc": "nyc check-coverage --lines 90 --functions 95 --branches 85 --per-file || true",
+        "checkCoverage_perFile_istanbul": "istanbul check-coverage --lines 90 --functions 95 --branches 85 --per-file || true",
+
+        "openCoverageReport": "npm run openCoverageReport_inBrowser",
+        "openCoverageReport_inShell_via_nyc": "nyc report",
+        "openCoverageReport_inBrowser": "opn coverage/lcov-report/index.html",
+
+        "testAndCoverageAndReport": "npm run testAndCoverage && npm run openCoverageReport",
+        "start": "nodemon src/mainServer.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "ejs": "^2.5.7",
+        "express": "^4.16.2"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^4.0.1",
+        "nodemon": "^1.12.1",
+        "nyc": "^11.3.0"
+    }
+}
